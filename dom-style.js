@@ -46,7 +46,7 @@ define(["./sniff", "./dom"], function(has, dom){
 	}else{
 		getComputedStyle = function(node){
 			return node.nodeType == 1 /* ELEMENT_NODE*/ ?
-				node.ownerDocument.defaultView.getComputedStyle(node, null) : {};
+				(node.ownerDocument.defaultView.getComputedStyle(node, null) || {}) : {};
 		};
 	}
 	style.getComputedStyle = getComputedStyle;
